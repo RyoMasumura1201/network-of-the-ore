@@ -1,0 +1,24 @@
+name: ubuntu-ovs-switch
+
+topology:
+  nodes:
+    # Open vSwitchブリッジ (ホスト上に事前に作成されたovs-brを参照)
+    ovs-br:
+      kind: ovs-bridge
+    
+    # 最初のUbuntuノード
+    ubuntu1:
+      kind: linux
+      image: ubuntu:latest
+    
+    # 2番目のUbuntuノード
+    ubuntu2:
+      kind: linux
+      image: ubuntu:latest
+
+  links:
+    # ubuntu1をOVSブリッジポート1に接続
+    - endpoints: ["ubuntu1:eth1", "ovs-br:eth1"]
+    
+    # ubuntu2をOVSブリッジポート2に接続
+    - endpoints: ["ubuntu2:eth1", "ovs-br:eth2"]
