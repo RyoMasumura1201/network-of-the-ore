@@ -9,12 +9,12 @@ topology:
     # 最初のUbuntuノード
     ubuntu1:
       kind: linux
-      image: ubuntu:latest
+      image: ore-client
     
     # 2番目のUbuntuノード
     ubuntu2:
       kind: linux
-      image: ubuntu:latest
+      image: ore-client
 
   links:
     # ubuntu1をOVSブリッジポート1に接続
