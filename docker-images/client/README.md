@@ -14,7 +14,7 @@
 ## ビルド方法
 
 ```bash
-docker build -t network-client .
+docker build -t ore-client .
 ```
 
 ## 使用方法
@@ -27,14 +27,6 @@ docker run -it network-client
 
 # バックグラウンドで起動
 docker run -d --name my-client network-client
-```
-
-## 事前ビルド済みイメージの取得
-
-ローカルでビルドする代わりに、事前にビルド済みのイメージを取得することもできます：
-
-```bash
-docker pull gcr.io/container-lab-491010/ubuntu-client:latest
 ```
 
 ## カスタマイズ
