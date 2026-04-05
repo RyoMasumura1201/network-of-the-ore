@@ -1,0 +1,39 @@
+name: l3-router
+
+topology:
+  nodes:
+    # ルータノード (IP forwardingを有効化し、2つのサブネットを接続)
+    router:
+      kind: linux
+      image: ore-router
+      exec:
+        - sysctl -w net.ipv4.ip_forward=1
+        - ip addr add 10.0.1.1/24 dev eth1
+        - ip link set eth1 up
+        - ip addr add 10.0.2.1/24 dev eth2
+        - ip link set eth2 up
+
+    # クライアント1 (10.0.1.0/24 サブネット)
+    client1:
+      kind: linux
+      image: ore-client
+      exec:
+        - ip addr add 10.0.1.2/24 dev eth1
+        - ip link set eth1 up
+        - ip route add 10.0.2.0/24 via 10.0.1.1
+
+    # クライアント2 (10.0.2.0/24 サブネット)
+    client2:
+      kind: linux
+      image: ore-client
+      exec:
+        - ip addr add 10.0.2.2/24 dev eth1
+        - ip link set eth1 up
+        - ip route add 10.0.1.0/24 via 10.0.2.1
+
+  links:
+    # client1 とルータを接続
+    - endpoints: ["client1:eth1", "router:eth1"]
+
+    # client2 とルータを接続
+    - endpoints: ["client2:eth1", "router:eth2"]

@@ -19,9 +19,8 @@ cd docker-images/client && docker build -t ore-client .
 # Create OVS bridge first (required before deploy)
 sudo ovs-vsctl add-br ovs-br
 
-# Deploy (CLAB_LABDIR_BASE override needed when using multipass mount)
 cd containerlab-l2-switch
-sudo CLAB_LABDIR_BASE=/home/ubuntu/labs containerlab deploy -t topology.yml
+sudo containerlab deploy -t topology.yml
 ```
 
 ### Access nodes and test connectivity

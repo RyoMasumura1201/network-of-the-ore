@@ -1,0 +1,16 @@
+---
+client1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 
+client2:
+    username: 
+    password: 
+    platform: linux
+    hostname: 
+router:
+    username: 
+    password: 
+    platform: linux
+    hostname: 

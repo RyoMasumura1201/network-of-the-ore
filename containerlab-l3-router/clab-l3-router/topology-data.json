@@ -1,0 +1,148 @@
+{
+  "name": "l3-router",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-5ad4dcca107b",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "external-access": true
+      }
+    }
+  },
+  "ssh-pub-keys": ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDE+BKTP+wxDSXV3WIpBeObf0dJB5rJ1cXPfqU5iYw1Y","ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILr3E8MUEYniP3F0Bx4OI6DlVELLMIqziZsK8DakX3cF"],
+  "nodes": {
+    "client1": {
+      "index": "0",
+      "shortname": "client1",
+      "longname": "clab-l3-router-client1",
+      "fqdn": "client1.l3-router.io",
+      "group": "",
+      "labdir": "/home/r-masumura/go/src/github.com/RyoMasumura1201/network-of-the-ore/containerlab-l3-router/clab-l3-router/client1",
+      "kind": "linux",
+      "image": "ore-client",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-5ad4dcca107b",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/r-masumura/go/src/github.com/RyoMasumura1201/network-of-the-ore/containerlab-l3-router/clab-l3-router/client1",
+        "clab-node-longname": "clab-l3-router-client1",
+        "clab-node-name": "client1",
+        "clab-node-type": "",
+        "clab-owner": "r-masumura",
+        "clab-topo-file": "/home/r-masumura/go/src/github.com/RyoMasumura1201/network-of-the-ore/containerlab-l3-router/topology.yml",
+        "containerlab": "l3-router"
+      },
+      "port-bindings": [
+      ]
+    },
+    "client2": {
+      "index": "1",
+      "shortname": "client2",
+      "longname": "clab-l3-router-client2",
+      "fqdn": "client2.l3-router.io",
+      "group": "",
+      "labdir": "/home/r-masumura/go/src/github.com/RyoMasumura1201/network-of-the-ore/containerlab-l3-router/clab-l3-router/client2",
+      "kind": "linux",
+      "image": "ore-client",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-5ad4dcca107b",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/r-masumura/go/src/github.com/RyoMasumura1201/network-of-the-ore/containerlab-l3-router/clab-l3-router/client2",
+        "clab-node-longname": "clab-l3-router-client2",
+        "clab-node-name": "client2",
+        "clab-node-type": "",
+        "clab-owner": "r-masumura",
+        "clab-topo-file": "/home/r-masumura/go/src/github.com/RyoMasumura1201/network-of-the-ore/containerlab-l3-router/topology.yml",
+        "containerlab": "l3-router"
+      },
+      "port-bindings": [
+      ]
+    },
+    "router": {
+      "index": "2",
+      "shortname": "router",
+      "longname": "clab-l3-router-router",
+      "fqdn": "router.l3-router.io",
+      "group": "",
+      "labdir": "/home/r-masumura/go/src/github.com/RyoMasumura1201/network-of-the-ore/containerlab-l3-router/clab-l3-router/router",
+      "kind": "linux",
+      "image": "ore-router",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-5ad4dcca107b",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/r-masumura/go/src/github.com/RyoMasumura1201/network-of-the-ore/containerlab-l3-router/clab-l3-router/router",
+        "clab-node-longname": "clab-l3-router-router",
+        "clab-node-name": "router",
+        "clab-node-type": "",
+        "clab-owner": "r-masumura",
+        "clab-topo-file": "/home/r-masumura/go/src/github.com/RyoMasumura1201/network-of-the-ore/containerlab-l3-router/topology.yml",
+        "containerlab": "l3-router"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "endpoints": {
+        "a": {
+          "node": "client1",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:16:2f:4c",
+          "peer": "z"
+        },
+        "z": {
+          "node": "router",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:6a:ef:56",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "client2",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:e3:57:f0",
+          "peer": "z"
+        },
+        "z": {
+          "node": "router",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:8e:06:6d",
+          "peer": "a"
+        }
+      }
+    }
+  ]
+}
